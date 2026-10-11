@@ -1,0 +1,6 @@
+{
+  "name": "TuckBook",
+  "description": "School tuck-shop cash, stock, and expense management app with Gemini AI assistant and cloud backup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,98 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile document",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "shopName": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "createdAt"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Tuck-shop product item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "unitPriceNgwee": { "type": "integer" },
+        "costPriceNgwee": { "type": "integer" },
+        "stock": { "type": "integer" },
+        "isActive": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "unitPriceNgwee", "stock"]
+    },
+    "Sale": {
+      "title": "Sale",
+      "description": "Sale transaction record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "businessDate": { "type": "string" },
+        "totalNgwee": { "type": "integer" },
+        "discountNgwee": { "type": "integer" },
+        "paymentMethod": { "type": "string" },
+        "itemsSummary": { "type": "string" },
+        "isVoided": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessDate", "totalNgwee", "createdAt"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Expense transaction record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "businessDate": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "amountNgwee": { "type": "integer" },
+        "isVoided": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessDate", "title", "amountNgwee", "createdAt"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Gemini chatbot conversation message",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sender": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "sender", "text", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile data"
+    },
+    "/users/{userId}/products/{productId}": {
+      "schema": "Product",
+      "description": "Shop inventory products"
+    },
+    "/users/{userId}/sales/{saleId}": {
+      "schema": "Sale",
+      "description": "Tuck-shop sales transactions"
+    },
+    "/users/{userId}/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Shop operating expense records"
+    },
+    "/users/{userId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "AI chat history with Gemini assistant"
+    }
+  }
+}
